@@ -577,7 +577,6 @@ const formData = {};
 
 const onFormInput = e => {
   formData[e.target.name] = e.target.value;
-  console.log(formData);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 };
 
@@ -600,6 +599,7 @@ populateTextarea();
 
 function onFormSubmit(evt) {
   evt.preventDefault();
+  console.log(formData);
   console.log('Отправляем форму');
   evt.currentTarget.reset();
   localStorage.removeItem(STORAGE_KEY);

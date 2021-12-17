@@ -14,7 +14,6 @@ refs.form.addEventListener('submit', onFormSubmit);
 const formData = {}
 const onFormInput = (e) => { 
    formData[e.target.name] = e.target.value
-   console.log(formData);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
   
 }
@@ -39,7 +38,7 @@ refs.form.addEventListener('input', throttle(onFormInput, 500));
 
 function onFormSubmit(evt) {
     evt.preventDefault();
-    
+    console.log(formData);
     console.log('Отправляем форму');
     evt.currentTarget.reset();
     
