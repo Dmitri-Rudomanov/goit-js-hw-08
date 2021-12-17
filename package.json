@@ -3,20 +3,20 @@
   "version": "1.1.0",
   "description": "## Скрытые файлы",
   "main": "index.js",
-  "homepage": "https://goitacademy.github.io/goit-js-hw-08",
+  "homepage": "https://dmitri-rudomanov.github.io/goit-js-hw-08/",
   "scripts": {
     "dev": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /goit-js-hw-08/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goitacademy/goit-js-hw-08.git"
+    "url": "git+https://dmitri-rudomanov.github.io/goit-js-hw-08/"
   },
   "keywords": [],
   "author": "Rudomanov Dmitrij",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/goitacademy/goit-js-hw-08/issues"
+    "url": "https://dmitri-rudomanov.github.io/goit-js-hw-08/issues"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
