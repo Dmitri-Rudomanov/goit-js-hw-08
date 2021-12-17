@@ -3118,25 +3118,29 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const iframe = document.querySelector('iframe');
 const player = new _player.default(iframe);
-player.on('play', function () {
-  console.log('played the video!');
-});
-player.getVideoTitle().then(function (title) {
-  console.log('title:', title);
-});
+const currentTime = localStorage.getItem("videoplayer-current-time");
 
 const videoTimeCheck = e => {
   console.log(e.seconds);
   localStorage.setItem("videoplayer-current-time", e.seconds);
 };
 
-player.on("timeupdate", (0, _lodash.default)(videoTimeCheck, 1000));
-const currentTime = localStorage.getItem("videoplayer-current-time");
-onUpdatePage(currentTime);
+player.setCurrentTime(currentTime).then(function (seconds) {}).catch(function (error) {
+  switch (error.name) {
+    case 'RangeError':
+      break;
 
-function onUpdatePage(time) {
-  player.setCurrentTime(time);
-}
+    default:
+      break;
+  }
+});
+player.on('play', function () {
+  console.log('played the video!');
+});
+player.getVideoTitle().then(function (title) {
+  console.log('title:', title);
+});
+player.on("timeupdate", (0, _lodash.default)(videoTimeCheck, 1000));
 },{"@vimeo/player":"../node_modules/@vimeo/player/dist/player.es.js","lodash.throttle":"../node_modules/lodash.throttle/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -3165,7 +3169,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61067" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57590" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
