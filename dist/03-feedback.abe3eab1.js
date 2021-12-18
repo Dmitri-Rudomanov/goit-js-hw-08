@@ -573,7 +573,7 @@ const refs = {
   input: document.querySelector('.feedback-form  input')
 };
 refs.form.addEventListener('submit', onFormSubmit);
-const formData = {};
+let formData = {};
 
 const onFormInput = e => {
   formData[e.target.name] = e.target.value;
@@ -588,10 +588,12 @@ function populateTextarea() {
 
   if (parsed && parsed.message) {
     refs.textarea.value = parsed.message;
+    formData = parsed;
   }
 
   if (parsed && parsed.email) {
     refs.input.value = parsed.email;
+    formData = parsed;
   }
 }
 
@@ -602,6 +604,7 @@ function onFormSubmit(evt) {
   console.log(formData);
   console.log('Отправляем форму');
   evt.currentTarget.reset();
+  formData = {};
   localStorage.removeItem(STORAGE_KEY);
 }
 },{"lodash.throttle":"../node_modules/lodash.throttle/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -632,7 +635,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57590" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59788" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
